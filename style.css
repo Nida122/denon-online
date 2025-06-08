@@ -1,0 +1,148 @@
+/* ===========================
+  グローバル設定
+=========================== */
+
+/* 全体のベース設定 */
+body {
+  background: #2a2a2a; /* 薄い灰色ベース */
+  color: #ccc; /* 文字色を灰色に */
+  font-family: 'Courier New', monospace;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;  /* 横方向に中央揃え */
+  align-items: flex-start;  /* 上揃え */
+  flex-direction: column;
+  height: 100%;  /* 高さ100%でコンテンツが画面いっぱいに表示される */
+  overflow-y: auto;  /* ページが長くなる場合、スクロール可能 */
+}
+
+/* ナビゲーションバー */
+.main-nav {
+  background: #111;
+  text-align: center;
+  padding: 10px 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+  width: 100%;
+  position: fixed;  /* 固定 */
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+
+.main-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav li {
+  display: inline-block;
+  margin: 0 15px;
+}
+
+.main-nav a {
+  color: #8af6e4;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.main-nav a:hover {
+  color: #fff;
+}
+
+/* ===========================
+  メインコンテンツ
+=========================== */
+main {
+  padding-top: 70px; /* ナビゲーションバーの高さ分だけ余白を追加 */
+  padding-bottom: 30px;
+  width: 100%;  /* 幅を100%にして、中央揃えにしたい */
+  max-width: 1200px;  /* 最大幅を1200pxに制限 */
+  margin: 0 auto;  /* 中央揃え */
+  text-align: center;  /* 文字を中央揃え */
+}
+
+/* キャラクターセクションのラッパー */
+.character-wrapper {
+  display: flex;
+  flex-wrap: wrap;  /* キャラクターを複数行に分けて配置 */
+  justify-content: center;  /* 中央揃え */
+  gap: 20px;  /* キャラクター間に隙間を追加 */
+}
+
+/* キャラクターの個別設定 */
+.character {
+  width: 45%; /* 画面の幅の45%を使う（2つで1行になる） */
+  margin-bottom: 30px; /* 各キャラクターの下に余白 */
+  padding: 20px;
+  box-sizing: border-box; /* paddingがwidthに影響しないように */
+}
+
+.character img {
+  width: 150px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+.character h2 {
+  font-size: 1.3rem;
+  margin-top: 15px;
+  color: #8af6e4;
+}
+
+.character p {
+  color: #bbb;
+}
+
+/* ===========================
+  音源試聴のスタイル
+=========================== */
+.audio-player {
+  margin-top: 20px;
+}
+
+.audio-player audio {
+  width: 300px; /* オーディオプレイヤーの幅 */
+  border: 1px solid #888;
+  background-color: #333;
+  padding: 5px;
+}
+
+footer {
+  text-align: center;  /* 文字を中央揃え */
+  padding: 20px;
+  background-color: #111;
+  color: #ccc;
+  margin-top: 70px;
+  width: 100%;  /* 幅を100%にしてページ全体に広げる */
+  box-sizing: border-box;  /* パディングを幅に含める */
+}
+
+
+/* ===========================
+  モバイル対応（画面幅が狭いとき）
+=========================== */
+@media (max-width: 768px) {
+  .character {
+    width: 100%;  /* モバイル画面ではキャラクターが1列に並ぶ */
+    margin-bottom: 20px; /* 下部余白を小さく */
+  }
+
+  .main-nav ul {
+    display: flex;
+    flex-direction: column;  /* モバイルでは縦並び */
+    align-items: center;
+  }
+
+  .main-nav li {
+    margin: 10px 0; /* メニュー項目の間隔を広げる */
+  }
+
+  .audio-player audio {
+    width: 90%;  /* 音源プレイヤーの幅を広げる */
+  }
+}
