@@ -1,2 +1,2 @@
-# denon-online
+# denonverse
 電音ライブラリ
