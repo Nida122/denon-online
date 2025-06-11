@@ -4,29 +4,123 @@
   <meta charset="UTF-8">
   <title>電音ライブラリ</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2em;
+      text-align: center;
+    }
+
+    .updates {
+      margin-top: 2em;
+    }
+
+    .updates h2 {
+      font-size: 1.2em;
+      border-bottom: 1px solid #555;
+      padding-bottom: 0.2em;
+      margin-bottom: 0.5em;
+    }
+
+    .updates ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .updates li {
+      margin-bottom: 0.3em;
+      font-family: monospace;
+      color: #ccc;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1em 0;
+      margin-top: auto;
+    }
+
+    #visitor-counter {
+      position: fixed;
+      bottom: 10px;
+      right: 15px;
+      background: rgba(0, 0, 0, 0.7);
+      color: #8af6e4;
+      padding: 0.5em 1em;
+      font-size: 0.9em;
+      font-family: monospace;
+      border: 1px solid #444;
+      border-radius: 5px;
+      z-index: 1000;
+      pointer-events: none;
+    }
+  </style>
 </head>
-<body id="denon-online">
->
+<body id="denon-home">
+
+  <!-- ナビゲーションバー（SNS付き） -->
   <nav class="main-nav">
-    <ul>
+    <ul class="nav-links">
       <li><a href="index.html">HOME</a></li>
       <li><a href="characters.html">CHARACTERS</a></li>
-      <li><a href="voices.html">VOICEBANKS</a></li>
       <li><a href="ust.html">UST</a></li>
     </ul>
+    <div class="sns-icons">
+      <a href="https://twitter.com/あなたのアカウント" target="_blank">
+        <img src="images/twitter.svg" alt="Twitter">
+      </a>
+      <a href="https://www.youtube.com/channel/あなたのチャンネルID" target="_blank">
+        <img src="images/youtube.svg" alt="YouTube">
+      </a>
+    </div>
   </nav>
-
-  <header>
-    <h1 class="glitch-text">電音ライブラリ</h1>
-    <p>ここは仮想世界に記録された、声の保管庫。</p>
-  </header>
 
   <main>
     <section>
+      <h1 style="color: #7ff7eb; font-size: 3em; font-weight: bold; text-shadow: 2px 2px 4px #111;">電音ライブラリ</h1>
+      <p style="color: #7ff7eb;">ここは仮想世界に記録された、声の保管庫。</p>
+
       <h2>このサイトについて</h2>
-      <p>本サイトでは、UTAU用音源およびUST（歌唱データ）の配布を行っています。電脳の片隅で息づく彼らの声をご利用ください。</p>
+      <p>本サイトでは、UTAU用音源およびUST（歌唱データ）の配布を行っています。</p>
+    </section>
+
+    <section class="updates">
+      <h2>更新情報</h2>
+      <ul>
+        <li>2025.06.10 - UST「字が汚い全ての人に捧げる歌」追加</li>
+        <li>2025.06.08 - キャラクター「212」情報更新</li>
+        <li>2025.06.05 - サイト公開</li>
+      </ul>
     </section>
   </main>
+
+  <footer>
+    <p>&copy; 2025 Deno-On Project</p>
+  </footer>
+
+  <div id="visitor-counter">👁️ 訪問者数: <span id="visitor-count">0</span></div>
+
+  <script>
+    // 閲覧カウント（localStorageベース）
+    document.addEventListener("DOMContentLoaded", () => {
+      const counterEl = document.getElementById("visitor-count");
+      let count = localStorage.getItem("visit-count");
+      count = count ? parseInt(count) + 1 : 1;
+      localStorage.setItem("visit-count", count);
+      counterEl.textContent = count;
+    });
+  </script>
+</body>
+</html>
+
 
   <footer>
     <p>&copy; 2025 Deno-On Project</p>
