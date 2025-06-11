@@ -2,63 +2,98 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>UST配布</title>
+  <title>電音ライブラリ | UST配布</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .ust-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5em;
+      padding: 2em;
+    }
+
+    .ust-item {
+      background: #1a1a1a;
+      border: 1px solid #333;
+      border-radius: 12px;
+      padding: 1em;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .ust-item:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 6px #00f0ff40;
+    }
+
+    .ust-title {
+      font-size: 1em;
+      font-weight: bold;
+      margin-bottom: 0.3em;
+    }
+
+    .ust-title a {
+      color: #8af6e4;
+      text-decoration: none;
+      position: relative;
+    }
+
+    .ust-title a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: #8af6e4;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .ust-title a:hover::after {
+      transform: scaleX(1);
+    }
+
+    .ust-author {
+      font-size: 0.9em;
+      color: #aaa;
+    }
+  </style>
 </head>
 <body>
+  <!-- ナビゲーションバー（SNS付き） -->
   <nav class="main-nav">
-    <ul>
+    <ul class="nav-links">
       <li><a href="index.html">HOME</a></li>
       <li><a href="characters.html">CHARACTERS</a></li>
-      <li><a href="voices.html">VOICEBANKS</a></li>
       <li><a href="ust.html">UST</a></li>
     </ul>
+    <div class="sns-icons">
+      <a href="https://twitter.com/あなたのアカウント" target="_blank">
+        <img src="images/twitter.svg" alt="Twitter">
+      </a>
+      <a href="https://www.youtube.com/channel/あなたのチャンネルID" target="_blank">
+        <img src="images/youtube.svg" alt="YouTube">
+      </a>
+    </div>
   </nav>
 
   <main>
     <h1>UST配布</h1>
-
-    <!-- -「ライアーダンサー」 -->
-    <div class="ust-item">
-      <h3><a href="https://bowlroll.net/file/312395" target="_blank"> -ライアーダンサー</a></h3>
-      <p>マサラダ 様</p>
+    <div class="ust-grid">
+      <div class="ust-item">
+        <div class="ust-title"><a href="downloads/dirty_ust.zip">字が汚い全ての人に捧げる歌</a></div>
+        <div class="ust-author">by あなた</div>
+      </div>
+      <div class="ust-item">
+        <div class="ust-title"><a href="downloads/song2.ust">サンプル曲2</a></div>
+        <div class="ust-author">by ユーザーB</div>
+      </div>
+      <div class="ust-item">
+        <div class="ust-title"><a href="downloads/song3.ust">サンプル曲3</a></div>
+        <div class="ust-author">by ユーザーC</div>
+      </div>
     </div>
-
-    <!-- 「性格悪くてすみません」 -->
-    <div class="ust-item">
-      <h3><a href="https://bowlroll.net/file/312396" target="_blank"> -性格悪くてすみません</a></h3>
-      <p>青谷 様</p>
-    </div>
-    
-    <!-- 「取り柄のないクズだって生きてていいだろが」 -->
-    <div class="ust-item">
-      <h3><a href="https://bowlroll.net/file/312397" target="_blank"> -取り柄のないクズだって生きてていいだろが</a></h3>
-      <p>ヘルニアofficial 様</p>
-    </div>
-
-    <!-- 「新世」 -->
-    <div class="ust-item">
-      <h3><a href="https://bowlroll.net/file/312397" target="_blank"> -新世</a></h3>
-      <p>巡巡 様</p>
-    </div>
-
-    <!-- 「字が汚い全ての人に捧げる歌」 -->
-    <div class="ust-item">
-      <h3><a href="https://bowlroll.net/file/315404" target="_blank"> -字が汚い全ての人に捧げる歌</a></h3>
-      <p>MidLuster 様</p>
-    </div>
-
-    <!-- 「すげぇアプリ開発中」 -->
-    <div class="ust-item">
-      <h3><a href="https://bowlroll.net/file/337274" target="_blank"> -すげぇアプリ開発中</a></h3>
-      <p>原曲 - WONDERFUL★OPPORTUNITY!</p>
-    </div>
-
-    <!-- 繰り返す -->
   </main>
-
-  <footer>
-    <p>&copy; 2025 Deno-On Project</p>
-  </footer>
 </body>
 </html>
